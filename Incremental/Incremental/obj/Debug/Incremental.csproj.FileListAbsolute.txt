@@ -1,0 +1,11 @@
+G:\Incremental\Incremental\Incremental\bin\Debug\Incremental.exe.config
+G:\Incremental\Incremental\Incremental\bin\Debug\Incremental.exe
+G:\Incremental\Incremental\Incremental\bin\Debug\Incremental.pdb
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.csprojAssemblyReference.cache
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.Form_MainMenu.resources
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.FormCharacterCreation.resources
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.Properties.Resources.resources
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.GenerateResource.cache
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.CoreCompileInputs.cache
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.exe
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.pdb

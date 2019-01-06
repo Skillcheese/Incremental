@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.IO;
+using System.Windows.Forms;
+
+namespace Incremental
+{
+    public partial class Form_MainMenu : Form
+    {
+        String savePath = Environment.CurrentDirectory + "\\GameSave.txt";
+        public Form_MainMenu()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_CreateCharacter_Click(object sender, EventArgs e)
+        {
+            FormCharacterCreation characterCreator = new FormCharacterCreation();
+            characterCreator.mainMenu = this;
+            characterCreator.Show();
+        }
+
+        private void Label_GameTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_LoadGame_Click(object sender, EventArgs e)
+        {
+            Character load = LoadGame();
+            if(load == null)
+            {
+                MessageBox.Show("No save file found, create a new character!");
+            }
+            else
+            {
+                StartGame(load, false);
+            }
+
+        }
+
+        private Character LoadGame()
+        {
+            if (File.Exists(savePath))
+            {
+                XmlSerializer xml = new XmlSerializer(typeof(Character));
+                StreamReader reader = new StreamReader(savePath);
+                Character input = (Character) xml.Deserialize(reader);
+                Console.Write(input.characterClass);
+                return input;
+            }
+            else
+            {
+                Console.WriteLine("File not found at: " + savePath);
+                return null;
+            }
+        }
+
+        private void SaveGame(Character c)
+        {
+            Stream stream = File.OpenWrite(savePath);
+            XmlSerializer xml = new XmlSerializer(typeof(Character));
+            xml.Serialize(stream, c);
+            stream.Close();
+        }
+
+        public void StartGame(Character c, bool shouldSave)
+        {
+            if(shouldSave)
+            {
+                SaveGame(c);
+            }
+            Button_CreateCharacter.Hide();
+            Button_LoadGame.Hide();
+            Label_GameTitle.Hide();
+        }
+    }
+}
