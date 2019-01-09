@@ -52,9 +52,14 @@ namespace Incremental
             {
                 XmlSerializer xml = new XmlSerializer(typeof(Character));
                 StreamReader reader = new StreamReader(savePath);
-                Character input = (Character) xml.Deserialize(reader);
-                Console.Write(input.characterClass);
-                return input;
+                var input = xml.Deserialize(reader);
+                if(input.GetType() == typeof(Character))
+                {
+                    Character loadedCharacter = (Character)input;
+                    loadedCharacter.PostReadFromFile();
+                    return loadedCharacter;
+                }
+                return null;
             }
             else
             {
@@ -65,8 +70,10 @@ namespace Incremental
 
         private void SaveGame(Character c)
         {
+            File.Delete(savePath);
             Stream stream = File.OpenWrite(savePath);
             XmlSerializer xml = new XmlSerializer(typeof(Character));
+            c.PrepareToWrite();
             xml.Serialize(stream, c);
             stream.Close();
         }
@@ -76,6 +83,10 @@ namespace Incremental
             if(shouldSave)
             {
                 SaveGame(c);
+            }
+            else
+            {
+                MessageBox.Show("starting game with character: \n" + c.CharacterToString());
             }
             Button_CreateCharacter.Hide();
             Button_LoadGame.Hide();

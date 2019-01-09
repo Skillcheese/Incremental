@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,11 +22,22 @@ namespace Incremental
 
         private void comboBox_class_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String className = comboBox_class.SelectedItem.ToString();
+            Stat[] classStats = ConvertStringToClasses(className);
+            String r = className + "\n";
+            for(int i = 0; i < classStats.Length; i++)
+            {
+                Stat stat = classStats[i];
+                if (stat.GetLevel() > 1)
+                {
+                    r += stat.name + " " + stat.GetLevel() + "\n";
+                }
+            }
+            ClassLabel.Text = r;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String output = "";
             String name = TextBox_CharacterName.Text;
             bool isFemale = radioButton_female.Checked;
             String startingClass = "";
@@ -33,21 +45,14 @@ namespace Incremental
             {
                 startingClass = comboBox_class.SelectedItem.ToString();
             }
+
             bool failure = false;
-            if (name != "")
-            {
-                output += "Name: " + name + "\n";
-            }
-            else
+
+            if (name == "")
             {
                 failure = true;
             }
-            output += "Gender: " + (isFemale ? "Female" : "Male");
-            if(startingClass != "")
-            {
-                output += "\nClass: " + startingClass;
-            }
-            else
+            if(startingClass == "")
             {
                 failure = true;
             }
@@ -57,31 +62,71 @@ namespace Incremental
             }
             else
             {
-                MessageBox.Show(output);
-                CLASSES characterClass = convertStringToClasses(startingClass);
+                Stat[] characterClass = ConvertStringToClasses(startingClass);
                 Character c = new Character(name, characterClass, isFemale);
+                MessageBox.Show("You have created a new character!\n" + c.CharacterToString());
                 mainMenu.StartGame(c, true);
                 Close();
             }
         }
 
-        private CLASSES convertStringToClasses(String s)
+        private Stat[] ConvertStringToClasses(String s)
         {
+
+            Stat[] r = new Stat[Stat.numStats];
+            foreach (StatsEnum stat in StatsEnum.GetValues(typeof(StatsEnum)))
+            {
+                r[(int)stat] = new Stat(stat);
+            }
             switch (s)
             {
                 case "Mage":
-                    return CLASSES.MAGE;
+                    r[(int) StatsEnum.ATTACK].AddToStatXP(BigInteger.Pow(10, 10));
+                    r[(int) StatsEnum.CHARISMA].AddToStatXP(BigInteger.Pow(10, 25));
+                    r[(int) StatsEnum.DEXTERITY].AddToStatXP(BigInteger.Pow(10, 15));
+                    r[(int) StatsEnum.INGENUITY].AddToStatXP(BigInteger.Pow(10, 35));
+                    r[(int) StatsEnum.INTELLIGENCE].AddToStatXP(BigInteger.Pow(10, 60));
+                    r[(int) StatsEnum.TOUGHNESS].AddToStatXP(BigInteger.Pow(10, 20));
+                    break;
                 case "Rogue":
-                    return CLASSES.ROGUE;
+                    r[(int)StatsEnum.ATTACK].AddToStatXP(BigInteger.Pow(10, 50));
+                    r[(int)StatsEnum.CHARISMA].AddToStatXP(BigInteger.Pow(10, 15));
+                    r[(int)StatsEnum.DEXTERITY].AddToStatXP(BigInteger.Pow(10, 50));
+                    r[(int)StatsEnum.INGENUITY].AddToStatXP(BigInteger.Pow(10, 40));
+                    r[(int)StatsEnum.INTELLIGENCE].AddToStatXP(BigInteger.Pow(10, 20));
+                    r[(int)StatsEnum.TOUGHNESS].AddToStatXP(BigInteger.Pow(10, 20));
+                    break;
                 case "Cleric":
-                    return CLASSES.CLERIC;
+                    r[(int)StatsEnum.ATTACK].AddToStatXP(BigInteger.Pow(10, 10));
+                    r[(int)StatsEnum.CHARISMA].AddToStatXP(BigInteger.Pow(10, 25));
+                    r[(int)StatsEnum.DEXTERITY].AddToStatXP(BigInteger.Pow(10, 25));
+                    r[(int)StatsEnum.INGENUITY].AddToStatXP(BigInteger.Pow(10, 40));
+                    r[(int)StatsEnum.INTELLIGENCE].AddToStatXP(BigInteger.Pow(10, 55));
+                    r[(int)StatsEnum.TOUGHNESS].AddToStatXP(BigInteger.Pow(10, 35));
+                    break;
                 case "Paladin":
-                    return CLASSES.PALADIN;
+                    r[(int)StatsEnum.ATTACK].AddToStatXP(BigInteger.Pow(10, 50));
+                    r[(int)StatsEnum.CHARISMA].AddToStatXP(BigInteger.Pow(10, 40));
+                    r[(int)StatsEnum.DEXTERITY].AddToStatXP(BigInteger.Pow(10, 15));
+                    r[(int)StatsEnum.INGENUITY].AddToStatXP(BigInteger.Pow(10, 40));
+                    r[(int)StatsEnum.INTELLIGENCE].AddToStatXP(BigInteger.Pow(10, 50));
+                    r[(int)StatsEnum.TOUGHNESS].AddToStatXP(BigInteger.Pow(10, 50));
+                    break;
                 case "Depraved":
-                    return CLASSES.DEPRAVED;
+                    //keep all stats at 0 xp
+                    break;
+                case "Warrior":
+                    r[(int)StatsEnum.ATTACK].AddToStatXP(BigInteger.Pow(10, 60));
+                    r[(int)StatsEnum.CHARISMA].AddToStatXP(BigInteger.Pow(10, 15));
+                    r[(int)StatsEnum.DEXTERITY].AddToStatXP(BigInteger.Pow(10, 20));
+                    r[(int)StatsEnum.INGENUITY].AddToStatXP(BigInteger.Pow(10, 20));
+                    r[(int)StatsEnum.INTELLIGENCE].AddToStatXP(BigInteger.Pow(10, 10));
+                    r[(int)StatsEnum.TOUGHNESS].AddToStatXP(BigInteger.Pow(10, 60));
+                    break;
                 default:
-                    return CLASSES.DEPRAVED;
+                    break;
             }
+            return r;
         }
     }
 }

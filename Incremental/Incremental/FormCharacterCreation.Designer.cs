@@ -37,6 +37,7 @@
             this.comboBox_class = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ClassLabel = new System.Windows.Forms.Label();
             this.GroupBox_Gender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +99,7 @@
             "Rogue",
             "Cleric",
             "Paladin",
+            "Warrior",
             "Depraved"});
             this.comboBox_class.Location = new System.Drawing.Point(20, 125);
             this.comboBox_class.Name = "comboBox_class";
@@ -110,9 +112,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.Size = new System.Drawing.Size(665, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Choose Starting Stats";
+            this.label2.Text = "Choose Starting Stats (Stats will be gained throughout the duration of the playth" +
+    "rough, up to 99, this will only affect early game performance!)";
             // 
             // button1
             // 
@@ -124,11 +127,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ClassLabel
+            // 
+            this.ClassLabel.AutoSize = true;
+            this.ClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassLabel.Location = new System.Drawing.Point(166, 126);
+            this.ClassLabel.Name = "ClassLabel";
+            this.ClassLabel.Size = new System.Drawing.Size(166, 20);
+            this.ClassLabel.TabIndex = 6;
+            this.ClassLabel.Text = "Choose Starting Stats";
+            // 
             // FormCharacterCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ClassLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox_class);
@@ -155,5 +169,6 @@
         private System.Windows.Forms.ComboBox comboBox_class;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label ClassLabel;
     }
 }
