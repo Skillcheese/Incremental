@@ -4,10 +4,12 @@ namespace Incremental
 {
     public class Gear
     {
-        private string name;
-        private int[] statsAmount;
-        private StatsEnum[] statsToAffect;
-        private GearSlots slotType;
+        public string name;
+        public int[] statsAmount;
+        public StatsEnum[] statsToAffect;
+        public GearSlots slotType;
+        public double damage;
+        public AttackType attackType;
 
         public Gear()
         {
@@ -15,24 +17,36 @@ namespace Incremental
             statsAmount = new int[0];
             statsToAffect = new StatsEnum[0];
             slotType = GearSlots.NOSLOTSPECIFIED;
+            damage = 0;
         }
 
-        public Gear(String _name, int[] _statsAmount, StatsEnum[] _statsToAffect, GearSlots _slotType)
+        public Gear(String _name, int[] _statsAmount, StatsEnum[] _statsToAffect, GearSlots _slotType, double _damage = -1, AttackType _attackType = AttackType.NONE)
         {
             name = _name;
             statsAmount = _statsAmount;
             statsToAffect = _statsToAffect;
             slotType = _slotType;
+            damage = _damage;
+            attackType = _attackType;
         }
 
-        public void SetSlotType(GearSlots _slotType)
+        public bool GetDamageTypes(ref double melee, ref double ranged, ref double magic, bool righthand)
         {
-            slotType = _slotType;
-        }
-
-        public GearSlots GetSlotType()
-        {
-            return slotType;
+            switch (attackType)
+            {
+                case AttackType.NONE:
+                    return false;
+                case AttackType.MELEE:
+                    melee += damage * (righthand ? 1 : .7);
+                    break;
+                case AttackType.RANGED:
+                    ranged += damage * (righthand ? 1 : .7);
+                    break;
+                case AttackType.MAGIC:
+                    magic += damage * (righthand ? 1 : .7);
+                    break;
+            }
+            return true;
         }
 
         public void SetStatsToAffect(StatsEnum[] _statsToAffect)
@@ -40,34 +54,14 @@ namespace Incremental
             statsToAffect = _statsToAffect;
         }
 
-        public StatsEnum[] GetStatsToAffect()
-        {
-            return statsToAffect;
-        }
-
         public void SetStatsAmount(int[] _statsAmount)
         {
             statsAmount = _statsAmount;
-        }
-        
-        public int[] GetStatsAmount()
-        {
-            return statsAmount;
-        }
-
-        public void SetName(String _name)
-        {
-            name = _name;
-        }
-
-        public String GetName()
-        {
-            return name;
         }
     }
 
     public enum GearSlots
     {
-        NOSLOTSPECIFIED, FEET, LEGS, CHEST, HEAD, HANDS, SHOULDERS, WAIST, RING1, RING2, NECKLACE
+        NOSLOTSPECIFIED, FEET, LEGS, CHEST, HEAD, HANDS, SHOULDERS, WAIST, RING1, RING2, NECKLACE, LEFTHAND, RIGHTHAND, BACK
     }
 }

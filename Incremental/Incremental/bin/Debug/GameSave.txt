@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <name>f</name>
+  <name>S</name>
   <isFemale>false</isFemale>
   <characterStats>
     <Stat>
@@ -32,14 +32,146 @@
     </Stat>
   </characterStats>
   <statXPForWrite>
+    <string>1000000000000000000000000000000000000000000000000000001345727</string>
+    <string>1000000000000000</string>
+    <string>1000000000000000000000000000000000000000000000000000000000000</string>
+    <string>10000000000</string>
     <string>0</string>
-    <string>0</string>
-    <string>0</string>
-    <string>0</string>
-    <string>0</string>
-    <string>0</string>
-    <string>0</string>
+    <string>100000000000000000000</string>
+    <string>100000000000000000000</string>
     <string>0</string>
     <string>0</string>
   </statXPForWrite>
+  <gear>
+    <Gear>
+      <name>sword</name>
+      <statsAmount />
+      <statsToAffect />
+      <slotType>RIGHTHAND</slotType>
+      <damage>0</damage>
+      <attackType>MELEE</attackType>
+    </Gear>
+  </gear>
+  <health />
+  <healthForWrite>242</healthForWrite>
+  <skills>
+    <skills>
+      <Skill>
+        <type>NOTALLOCATED</type>
+        <value>4961</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedTickRate</type>
+        <value>39</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedArmor</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedMaxHealth</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedDurability</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_AutoClicker</type>
+        <value>1000</value>
+      </Skill>
+      <Skill>
+        <type>Ability_ExtraDPT</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_GainArmor</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Overkill</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Multishot</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_DealDamageToXEnemies</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_DealDamageOverkill</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedManaRegen</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>EnemyArmorReductionOnHit</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_HealDOT</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_Sunder</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_SunderChunk</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_GainExtraXP</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>Ability_GainExtraGold</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedDPT</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedAttackDamage</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>IncreasedScaling</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageOrc</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageGoblin</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageHuman</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageLight</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageArmored</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>ExtraDamageGiant</type>
+        <value>0</value>
+      </Skill>
+      <Skill>
+        <type>HealthRegen</type>
+        <value>0</value>
+      </Skill>
+    </skills>
+  </skills>
 </Character>

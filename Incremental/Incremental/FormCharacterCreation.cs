@@ -22,9 +22,9 @@ namespace Incremental
 
         private void comboBox_class_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String className = comboBox_class.SelectedItem.ToString();
+            string className = comboBox_class.SelectedItem.ToString();
             Stat[] classStats = ConvertStringToClasses(className);
-            String r = className + "\n";
+            string r = className + "\n";
             for(int i = 0; i < classStats.Length; i++)
             {
                 Stat stat = classStats[i];
@@ -38,9 +38,9 @@ namespace Incremental
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String name = TextBox_CharacterName.Text;
+            string name = TextBox_CharacterName.Text;
             bool isFemale = radioButton_female.Checked;
-            String startingClass = "";
+            string startingClass = "";
             if(comboBox_class.SelectedItem != null)
             {
                 startingClass = comboBox_class.SelectedItem.ToString();
@@ -64,13 +64,15 @@ namespace Incremental
             {
                 Stat[] characterClass = ConvertStringToClasses(startingClass);
                 Character c = new Character(name, characterClass, isFemale);
+                Gear g = new Gear("sword", new int[] {  }, new StatsEnum[] {  }, GearSlots.RIGHTHAND, 0, AttackType.MELEE);
+                c.SetGearInSlot(GearSlots.RIGHTHAND, g);
                 MessageBox.Show("You have created a new character!\n" + c.CharacterToString());
                 mainMenu.StartGame(c, true);
                 Close();
             }
         }
 
-        private Stat[] ConvertStringToClasses(String s)
+        private Stat[] ConvertStringToClasses(string s)
         {
 
             Stat[] r = new Stat[Stat.numStats];

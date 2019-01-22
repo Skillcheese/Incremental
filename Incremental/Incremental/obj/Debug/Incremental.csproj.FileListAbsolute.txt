@@ -9,3 +9,15 @@ G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.GenerateReso
 G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.CoreCompileInputs.cache
 G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.exe
 G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.pdb
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\bin\Debug\Incremental.exe.config
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\bin\Debug\Incremental.exe
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\bin\Debug\Incremental.pdb
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.csprojAssemblyReference.cache
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.Form_MainMenu.resources
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.FormCharacterCreation.resources
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.Properties.Resources.resources
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.GenerateResource.cache
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.csproj.CoreCompileInputs.cache
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.exe
+Z:\Student Folders\Michael Evans\Incremental\Incremental\Incremental\obj\Debug\Incremental.pdb
+G:\Incremental\Incremental\Incremental\obj\Debug\Incremental.EnemyBox.resources

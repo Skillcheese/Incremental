@@ -47,6 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Skills.cs" />
+    <Compile Include="EnemyBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EnemyBox.Designer.cs">
+      <DependentUpon>EnemyBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="Names.cs" />
+    <Compile Include="Number.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Gear.cs" />
     <Compile Include="Form1.cs">
@@ -63,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EnemyBox.resx">
+      <DependentUpon>EnemyBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +92,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Skill.datasource" />
+    <None Include="Properties\DataSources\SkillRequirement.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
